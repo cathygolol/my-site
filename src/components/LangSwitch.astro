@@ -1,0 +1,47 @@
+---
+const path = Astro.url.pathname;
+
+//현재 언어 판별 : kr이면 kr 그 이외면 en
+const current = path.startsWith("/kr/") ? "kr" : "en";
+const isEn = current === "en";
+
+//현재 경로를 반대 언어로 바꾸는 함수
+const toOtherLang = (p:string) => {
+if(p==="/") return "/kr/";
+if(p.startsWith("/en/")) return p.replace(/^\/en\//, "/kr/");
+if(p.startsWith("/kr/")) return p.replace(/^\/kr\//, "/en/");
+//언어 없는 경우의 오류 볼 수 있는 안정장치
+return `/kr${p.startsWith("/") ? "":"/"}${p}`;
+};
+
+const otherHref = toOtherLang(path);
+---
+
+<nav class="lang">
+  <a class={isEn ? "active" : ""} href={isEn ? path : otherHref}
+  >EN</a>
+  <span class="sep"
+  >|</span>
+  <a class={!isEn ? "active" : ""} href={!isEn ? path : otherHref}
+  >KR</a>
+  </nav>
+
+<style>
+.lang{
+display: inline-flex;
+align-items:center;
+gap:8px;
+font-size: 14px;    
+}
+.sep{
+opacity:0.5;
+}
+a{
+text-decoration:none;
+opacity:0.7;
+}
+a.active{
+    opacity:1;
+    font-weight:600;
+}
+  </style>
