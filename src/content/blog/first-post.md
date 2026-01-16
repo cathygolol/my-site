@@ -1,13 +1,43 @@
 ---
-title: 'First post'
+title: '사이트의 구조'
 description: 'Lorem ipsum dolor sit amet'
-pubDate: 'Jul 08 2022'
+pubDate: 'Jan 16 2026'
 heroImage: '../../assets/blog-placeholder-3.jpg'
 ---
 
-처음이라 그런가 너무 힘드네 ㅎ.... 이럴 때 어떻게 하면 좋을지 잘 모르겠다. 나름대로 열심히 하고 있는데,, 뭐가 문제지? 뭐가 꼬인 걸까? 문제가 뭐지?
+며칠 동안 고생해왔다. 난 어떤 걸 얻었는가? 홈페이지를 약간 만질 수 있게 됐다. 
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
+전체 구조는 이렇다.  
+src  
+ ├─ pages       => url을 만든다  
+ ├─ layouts     => 페이지의 뼈대 (header, footer )     
+ ├─ components  => 재사용 블록  (header, langswitch, footer 포함)  
+ ├─ contents    => 글 데이터  
+ ├─ styles      => 전역 스타일  
+ └─ consts      => 사이트 공통 상수  
+
+ 이 중 앞의 3 가지가 핵심이라고 한다.
+
+ 1. pages 부터 보면  
+    - index.astro
+    - anout.astro  
+    - blog/[slug].astro  
+
+
+2.  src/layouts 페이지의 골격  
+```html
+<html>
+  <head>...</head>
+  <body>
+    <header />
+    <main>
+        <slot />
+    </main>    
+    <footer />
+  </body>
+</html>
+```
+
 
 Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc. Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra massa massa ultricies mi.
 

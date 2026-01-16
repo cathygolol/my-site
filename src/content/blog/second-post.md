@@ -1,5 +1,5 @@
 ---
-title: 'Second post'
+title: 'CHAT GPT가 심리적으로도 좋은 이유'
 description: 'Lorem ipsum dolor sit amet'
 pubDate: 'Jul 15 2022'
 heroImage: '../../assets/blog-placeholder-4.jpg'
